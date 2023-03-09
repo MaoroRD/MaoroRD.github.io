@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="src/estilos.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Antic&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Antic&family=Josefin+Sans&display=swap" rel="stylesheet">
+	<title>Contacto</title>
+
+	<script>
+		function validarFormulario() {
+			if (document.formulario.nombre.value.length == 0) {
+				alert("Ingrese un nombre válido")
+				document.formulario.nombre.focus()
+				return false;
+			}
+
+			if (document.formulario.apellido.value == "") {
+				alert("Ingrese un apellido válido")
+				document.formulario.apellido.focus()
+				return false;
+			}
+
+			var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+			valor = document.getElementById("email").value;
+			if (!(ck_email.test(valor))) {
+				alert("Ingrese un email válido")
+				return false;
+			}
+
+			alert("Muchas gracias! El formulario se envió correctamente");
+			document.formulario.submit();
+		}
+	</script>
+
+</head>
+
+<body>
+	<div class="container py-5 my-5 rounded">
+		<header>
+			<h1 class="py-5 pl-4 mb-3 shadow-lg rounded-pill col-10 col-sm-12 text-center">Mauro Lionel Iván Ruíz Díaz
+			</h1>
+			<nav class="m-5 pt-1 justify-content-center">
+				<ul>
+					<li><a href="index.html">| INICIO | </a></li>
+					<li><a href="p1-formacion.html">| FORMACIÓN ACADÉMICA |</a></li>
+					<li><a href="p2-experiencias.html">| EXPERIENCIAS LABORALES |</a></li>
+					<li><a href="p3-contacto.html">| CONTACTO |</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<h2 class="pb-3 ml-5">| Contacto</h2>
+			<section class="p-2 m-5">
+				<form action="mailto:nombre@dominio.com" method="post" name="formulario" id="formulario">
+					<label for="nombre">Nombre:</label><br>
+					<input type="text" name="nombre" id="nombre"><br><br>
+					<label for="apellido">Apellido:</label><br>
+					<input type="text" name="apellido" id="apellido"><br><br>
+					<label for="email">Email:</label><br>
+					<input type="email" name="email" id="email"><br><br>
+					<label for="comentarios">Motivo del contacto:</label><br>
+					<textarea name="comentarios" id="comentarios" cols="45" rows="5" class="pr-2"></textarea><br><br>
+					<input type="button" name="enviar" id="enviar" value="Enviar" onclick="validarFormulario()">
+				</form>
+			</section>
+		</main>
+		<footer class="bg-dark pt-2 rounded text-center">
+			<p>
+				Argentina Programa 4.0 - Front-End Academy | 2022
+			</p>
+		</footer>
+	</div>
+</body>
+
+</html>
